@@ -36,8 +36,9 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "release" ]; then
               make release
             fi
+  
   publish:
-   machine:
+    machine:
       image: ubuntu-1604:202007-01
     working_directory: /home/circleci/logspout
     environment:
@@ -57,4 +58,4 @@ workflows:
   build_and_publish:
     jobs:
       - build
-      - publish
+      - publish  
