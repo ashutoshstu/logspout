@@ -57,6 +57,4 @@ jobs:
   build_and_publish:
     jobs:
       - build
-      - publish        
-      
-      
+      - publish
