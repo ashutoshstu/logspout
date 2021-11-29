@@ -52,7 +52,11 @@ jobs:
       - run: docker run -it --rm --privileged tonistiigi/binfmt --install all
       - run: docker buildx create --use --name mybuilder
       - run: |
-          docker buildx build --push --platform linux/arm64,linux/amd64 -t odidev/logspout:${CIRCLE_BRANCH} -t odidev/logspout:latest .
+            if [ "$CIRCLE_BRANCH" = "master" ]; then
+               docker buildx build --push --platform linux/arm64,linux/amd64 -t odidev/logspout:latest .
+            fi
+      - run: |
+          docker buildx build --push --platform linux/arm64,linux/amd64 -t odidev/logspout:${CIRCLE_BRANCH} .
 workflows:
   version: 2
   build_and_publish:
