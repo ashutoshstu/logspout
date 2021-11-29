@@ -37,7 +37,7 @@ jobs:
               make release
             fi
   publish:
-    machine:
+   machine:
       image: ubuntu-1604:202007-01
     working_directory: /home/circleci/logspout
     environment:
@@ -51,8 +51,8 @@ jobs:
       - run: docker run -it --rm --privileged tonistiigi/binfmt --install all
       - run: docker buildx create --use --name mybuilder
       - run: |
-          docker buildx build --push --platform linux/arm64,linux/amd64 -t ${DOCKER_USERNAME}/logspout:${CIRCLE_BRANCH} -t ${DOCKER_USERNAME}/logspout:latest .
-  workflows:
+          docker buildx build --push --platform linux/arm64,linux/amd64 -t odidev/logspout:${CIRCLE_BRANCH} -t odidev/logspout:latest .
+workflows:
   version: 2
   build_and_publish:
     jobs:
