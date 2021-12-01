@@ -52,7 +52,7 @@ jobs:
       - run: docker run -it --rm --privileged tonistiigi/binfmt --install all
       - run: docker buildx create --use --name mybuilder
       - run: var=$(cat VERSION)
-      - run: echo "$var"
+      - run: echo $var
       - run: |
             if [ "$CIRCLE_BRANCH" = "master" ]; then
                docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:latest .
