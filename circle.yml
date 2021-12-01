@@ -53,7 +53,7 @@ jobs:
       - run: docker buildx create --use --name mybuilder
       - run: var=$(cat VERSION)
       - run: echo ${var}
-      - run: ./publish.sh
+      - run: sudo ./publish.sh
       - run: |
             if [ "$CIRCLE_BRANCH" = "master" ]; then
                docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:latest .
