@@ -129,6 +129,7 @@ clean:
 	docker rmi $(shell docker images -f 'dangling=true' -q) || true
 	
 publish:
+         echo "${VERSION}"
          
 
 .PHONY: release clean
