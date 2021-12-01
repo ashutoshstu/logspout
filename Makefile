@@ -129,5 +129,6 @@ clean:
 	docker rmi $(shell docker images -f 'dangling=true' -q) || true
 publish:
 	echo $(VERSION)
+	docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:${VERSION} .
          
 .PHONY: release clean
