@@ -58,7 +58,7 @@ jobs:
                docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:latest .
             fi
       - run: |
-          docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:${CIRCLE_BRANCH} .
+          docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:${var} .
 workflows:
   version: 2
   build_and_publish:
