@@ -51,14 +51,15 @@ jobs:
       - run: docker login -u abhishek138 -p abhishek138
       - run: docker run -it --rm --privileged tonistiigi/binfmt --install all
       - run: docker buildx create --use --name mybuilder
-      - run: |
-            if [ "${CIRCLE_BRANCH}" == "release" ]; then
-              make publish
-            fi
-      - run: |
-            if [ "$CIRCLE_BRANCH" = "master" ]; then
-               docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:latest .
-            fi
+      - run: make publish
+     # - run: |
+      #      if [ "${CIRCLE_BRANCH}" == "release" ]; then
+       #       make publish
+        #    fi
+      #- run: |
+       #     if [ "$CIRCLE_BRANCH" = "master" ]; then
+        #       docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:latest .
+         #   fi
      # - run: |
       #    docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:${var} .
 workflows:
