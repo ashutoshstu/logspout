@@ -131,7 +131,7 @@ publish:
 	mkdir -vp ~/.docker/cli-plugins/
 	curl --silent -L --output ~/.docker/cli-plugins/docker-buildx https://github.com/docker/buildx/releases/download/v0.3.1/buildx-v0.3.1.linux-amd64
 	chmod a+x ~/.docker/cli-plugins/docker-buildx
-	docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+	docker login -u abhishek138 -p abhishek138
 	docker run -it --rm --privileged tonistiigi/binfmt --install all
 	docker buildx create --use --name mybuilder
 	docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:${VERSION} .
