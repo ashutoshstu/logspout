@@ -135,7 +135,8 @@ publish:
 	docker run -it --rm --privileged tonistiigi/binfmt --install all
 	docker buildx create --use --name mybuilder
 ifneq ($(CIRCLE_BRANCH), master)
-	echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+	docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:${VERSION} .
+	
 endif
 	#docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:${VERSION} .
          
