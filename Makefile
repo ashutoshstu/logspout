@@ -138,10 +138,10 @@ ifeq ($(CIRCLE_BRANCH), master)
 	docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:${CIRCLE_BRANCH} -t abhhishek138/logspout:latest .
 	
 endif
+
 ifeq ($(CIRCLE_BRANCH), release)
-	docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:${CIRCLE_BRANCH} -t abhhishek138/logspout:latest .
+	docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:${VERSION} .
 	
 endif
-	#docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:${VERSION} .
-         
+	 
 .PHONY: release clean
