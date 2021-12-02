@@ -134,7 +134,7 @@ publish:
 	docker login -u abhishek138 -p abhishek138
 	docker run -it --rm --privileged tonistiigi/binfmt --install all
 	docker buildx create --use --name mybuilder
-ifneq ($(CIRCLE_BRANCH), master)
+ifeq ($(CIRCLE_BRANCH), master)
 	docker buildx build --push --platform linux/arm64,linux/amd64 -t abhishek138/logspout:${VERSION} .
 	
 endif
