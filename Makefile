@@ -135,7 +135,7 @@ publish:
 	docker run -it --rm --privileged tonistiigi/binfmt --install all
 	docker buildx create --use --name mybuilder
 ifeq ($(CIRCLE_BRANCH), master)
-	docker buildx build --platform linux/arm64,linux/amd64 -t abhishek138/logspout:${CIRCLE_BRANCH} -t abhhishek138/logspout:latest --push .
+	docker buildx build --platform linux/arm64,linux/amd64 -t abhishek138/logspout:${CIRCLE_BRANCH} -t abhishek138/logspout:latest --push .
 	
 endif
 
